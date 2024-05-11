@@ -1,10 +1,10 @@
-package dev.imrob.apilocadoraveiculos;
+package dev.imrob.carrental;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApiLocadoraVeiculosApplicationTests {
+class CarrentalApplicationTests {
 
 	@Test
 	void contextLoads() {
