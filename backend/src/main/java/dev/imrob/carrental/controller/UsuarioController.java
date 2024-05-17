@@ -67,6 +67,25 @@ public class UsuarioController {
         return ResponseEntity.ok(service.findById(id));
     }
 
+    @Operation(summary = "Atualizar Senha", description = "Atualizar Senha",
+            responses = {
+                    @ApiResponse(responseCode = "204", description = "Senha atualizada com sucesso.",
+                            content = @Content(
+                                    mediaType = "application/json",
+                                    schema = @Schema(implementation = Void.class))),
+                    @ApiResponse(
+                            responseCode = "400",
+                            description = "Senha não confere.",
+                            content = @Content(
+                                    mediaType = "application/json",
+                                    schema = @Schema(implementation = CustomError.class))),
+                    @ApiResponse(
+                            responseCode = "404",
+                            description = "Recurso não encontrado.",
+                            content = @Content(
+                                    mediaType = "application/json",
+                                    schema = @Schema(implementation = CustomError.class)))
+            })
     @PatchMapping("/{id}")
     public ResponseEntity<Void> atualizarSenha(@PathVariable("id") Long id, @Valid @RequestBody UsuarioSenhaDto usuarioSenhaDto) {
         service.editarSenha(id, usuarioSenhaDto);
