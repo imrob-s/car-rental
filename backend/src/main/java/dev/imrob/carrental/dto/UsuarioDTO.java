@@ -1,6 +1,5 @@
 package dev.imrob.carrental.dto;
 
-import dev.imrob.carrental.entity.Cliente;
 import dev.imrob.carrental.entity.enums.Regra;
 
 import java.time.LocalDateTime;
