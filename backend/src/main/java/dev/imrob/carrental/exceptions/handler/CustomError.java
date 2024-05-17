@@ -1,9 +1,10 @@
-package dev.imrob.carrental.exceptions.Model;
+package dev.imrob.carrental.exceptions.handler;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
 @AllArgsConstructor
 public class CustomError {
     private int status;
