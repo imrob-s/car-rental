@@ -1,4 +1,4 @@
-package dev.imrob.carrental.mapper;
+package dev.imrob.carrental.dto.mapper;
 
 import dev.imrob.carrental.dto.ClienteDTO;
 import dev.imrob.carrental.entity.Cliente;

@@ -1,4 +1,18 @@
 package dev.imrob.carrental.dto;
 
-public record UsuarioDTO() {
+import dev.imrob.carrental.entity.Cliente;
+import dev.imrob.carrental.entity.enums.Regra;
+
+import java.time.LocalDateTime;
+
+public record UsuarioDTO(
+        Long id,
+        String login,
+        String senha,
+        Regra tipoUsuario,
+        LocalDateTime dataCriacao,
+        LocalDateTime dataAlteracao,
+        String criadoPor,
+        String alteradoPor
+) {
 }

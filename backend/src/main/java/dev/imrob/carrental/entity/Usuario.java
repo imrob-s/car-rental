@@ -23,7 +23,7 @@ public class Usuario {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "tipo_usuario", nullable = false, length = 25)
-    private Regra tipoUsuario;
+    private Regra tipoUsuario = Regra.CLIENTE;
 
     @Column(unique = true, nullable = false, length = 100)
     private String login;
@@ -31,23 +31,13 @@ public class Usuario {
     @Column(nullable = false, length = 200)
     private String senha;
 
-    @OneToOne
-    @JoinColumn(name = "cliente_id")
-    private Cliente cliente;
-
-    @Column(name = "data_criacao")
     private LocalDateTime dataCriacao;
 
-    @ManyToOne
-    @JoinColumn(name = "criado_por")
-    private Usuario criadoPor;
-
-    @Column(name = "data_alteracao")
     private LocalDateTime dataAlteracao;
 
-    @ManyToOne
-    @JoinColumn(name = "alterado_por")
-    private Usuario alteradoPor;
+    private String criadoPor;
+
+    private String alteradoPor;
 
     @Override
     public final boolean equals(Object o) {

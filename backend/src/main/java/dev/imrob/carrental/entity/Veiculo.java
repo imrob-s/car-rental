@@ -12,7 +12,6 @@ import java.util.Objects;
 @Setter
 @ToString
 @RequiredArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name = "veiculo")
 public class Veiculo {
@@ -39,19 +38,13 @@ public class Veiculo {
     @Enumerated(EnumType.STRING)
     private CarroStatus status;
 
-    @Column(name = "data_criacao")
     private LocalDateTime dataCriacao;
 
-    @ManyToOne
-    @JoinColumn(name = "usuario_criacao")
-    private Usuario usuarioCriacao;
+    private String usuarioCriacao;
 
-    @Column(name = "data_alteracao")
     private LocalDateTime dataAlteracao;
 
-    @ManyToOne
-    @JoinColumn(name = "usuario_alteracao")
-    private Usuario usuarioAlteracao;
+    private String usuarioAlteracao;
 
     @Override
     public final boolean equals(Object o) {
