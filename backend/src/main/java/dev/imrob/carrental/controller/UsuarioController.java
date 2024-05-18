@@ -84,6 +84,12 @@ public class UsuarioController {
                             description = "Recurso não encontrado.",
                             content = @Content(
                                     mediaType = "application/json",
+                                    schema = @Schema(implementation = CustomError.class))),
+                    @ApiResponse(
+                            responseCode = "422",
+                            description = "Campos inválidos ou mal formatados.",
+                            content = @Content(
+                                    mediaType = "application/json",
                                     schema = @Schema(implementation = CustomError.class)))
             })
     @PatchMapping("/{id}")

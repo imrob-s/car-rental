@@ -3,11 +3,10 @@ package dev.imrob.carrental.service;
 import dev.imrob.carrental.dto.UsuarioCreateDto;
 import dev.imrob.carrental.dto.UsuarioResponseDto;
 import dev.imrob.carrental.dto.UsuarioSenhaDto;
-import dev.imrob.carrental.entity.Usuario;
 import dev.imrob.carrental.dto.mapper.UsuarioMapper;
+import dev.imrob.carrental.entity.Usuario;
 import dev.imrob.carrental.exceptions.EntityNotFoundException;
 import dev.imrob.carrental.exceptions.LoginUniqueViolationException;
-import dev.imrob.carrental.exceptions.ResourceNotFoundException;
 import dev.imrob.carrental.exceptions.SenhaIncorretaException;
 import dev.imrob.carrental.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
@@ -44,7 +43,7 @@ public class UsuarioService {
     @Transactional
     public UsuarioResponseDto editarSenha(Long id, UsuarioSenhaDto dto) {
         Usuario usuario = repository.findById(id).orElseThrow(
-                () -> new ResourceNotFoundException("Usuário não encontrado")
+                () -> new EntityNotFoundException("Usuário não encontrado")
         );
 
         if (!dto.novaSenha().equals(dto.confirmarSenha())) {
