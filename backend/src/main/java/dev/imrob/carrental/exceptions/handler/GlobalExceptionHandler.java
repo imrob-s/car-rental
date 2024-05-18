@@ -34,12 +34,12 @@ public class GlobalExceptionHandler {
     private ResponseEntity<CustomError> senhaIncorretaException(SenhaIncorretaException exception, HttpServletRequest request) {
 
         CustomError error = new CustomError(
-                HttpStatus.UNAUTHORIZED.value(),
+                HttpStatus.BAD_REQUEST.value(),
                 exception.getMessage(),
                 LocalDateTime.now().format(formatter),
                 request.getRequestURI()
         );
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(error);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
